@@ -1,0 +1,21 @@
+{
+  "name": "evgenij-vy/enum-extender",
+  "description": "Extend native php enums",
+  "minimum-stability": "stable",
+  "license": "MIT",
+  "version": "1.0.0",
+  "autoload": {
+    "psr-4": {
+      "EvgenijVY\\EnumExtender\\": "src/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Evgen Yurchenko",
+      "email": "evgenijvy@gmail.com"
+    }
+  ],
+  "require": {
+    "php": "^8.1"
+  }
+}
