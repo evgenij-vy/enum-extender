@@ -14,7 +14,7 @@ class CompareByAnnouncementService
      * @psalm-param T $enum
      * @return T[]
      */
-    public static function greaterThanOrEqual(UnitEnum $enum): array
+    public static function getGreaterThanOrEqual(UnitEnum $enum): array
     {
         $arrayEnum = $enum::cases();
 
@@ -26,7 +26,7 @@ class CompareByAnnouncementService
      * @psalm-param T $enum
      * @return T[]
      */
-    public static function greaterThan(UnitEnum $enum): array
+    public static function getGreaterThan(UnitEnum $enum): array
     {
         $arrayEnum = $enum::cases();
 
@@ -38,7 +38,7 @@ class CompareByAnnouncementService
      * @psalm-param T $enum
      * @return T[]
      */
-    public static function lessThanOrEqual(UnitEnum $enum): array
+    public static function getLessThanOrEqual(UnitEnum $enum): array
     {
         $arrayEnum = $enum::cases();
 
@@ -50,7 +50,7 @@ class CompareByAnnouncementService
      * @psalm-param T $enum
      * @return T[]
      */
-    public static function lessThan(UnitEnum $enum): array
+    public static function getLessThan(UnitEnum $enum): array
     {
         $arrayEnum = $enum::cases();
 
