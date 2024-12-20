@@ -16,36 +16,36 @@ trait CompareByAnnouncementTrait
      * @psalm-param UnitEnum $enum
      * @return T[]
      */
-    public static function greaterThanOrEqual(self $enum): array
+    public static function getGreaterThanOrEqual(self $enum): array
     {
-        return CompareByAnnouncementService::greaterThanOrEqual($enum);
+        return CompareByAnnouncementService::getGreaterThanOrEqual($enum);
     }
 
     /**
      * @psalm-param UnitEnum $enum
      * @return T[]
      */
-    public static function greaterThan(self $enum): array
+    public static function getGreaterThan(self $enum): array
     {
-        return CompareByAnnouncementService::greaterThan($enum);
+        return CompareByAnnouncementService::getGreaterThan($enum);
     }
 
     /**
      * @psalm-param UnitEnum $enum
      * @return T[]
      */
-    public static function lessThanOrEqual(self $enum): array
+    public static function getLessThanOrEqual(self $enum): array
     {
-        return CompareByAnnouncementService::lessThanOrEqual($enum);
+        return CompareByAnnouncementService::getLessThanOrEqual($enum);
     }
 
     /**
      * @psalm-param UnitEnum $enum
      * @return T[]
      */
-    public static function lessThan(self $enum): array
+    public static function getLessThan(self $enum): array
     {
-        return CompareByAnnouncementService::lessThan($enum);
+        return CompareByAnnouncementService::getLessThan($enum);
     }
 
     /**
