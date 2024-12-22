@@ -77,4 +77,42 @@ class CompareByAnnouncementService
 
         return array_search($enum1, $arrayEnum, true) < array_search($enum2, $arrayEnum, true) ? -1 : 1;
     }
+
+    /**
+     * @template T as UnitEnum
+     * @psalm-param T $enum1
+     * @psalm-param T $enum2
+     * @return T[]
+     */
+    public static function getBetween(UnitEnum $enum1, UnitEnum $enum2): array
+    {
+        if ($enum1::class !== $enum2::class) {
+            throw new UnexpectedValueException('Arguments must be a same class');
+        }
+
+        $arrayEnum = $enum1::cases();
+        $index1 = array_search($enum1, $arrayEnum, true);
+        $index2 = array_search($enum2, $arrayEnum, true);
+
+        if ($index1 < $index2) {
+            throw new UnexpectedValueException('Enum1 must be greater than $enum2');
+        }
+
+        return array_slice($arrayEnum, $index1, $index2 - $index1 - 1);
+    }
+
+    /**
+     * @template T as UnitEnum
+     * @psalm-param T $enum
+     * @psalm-param T $from
+     * @psalm-param T $to
+     */
+    public static function isBetween(UnitEnum $enum, UnitEnum $from, UnitEnum $to): bool
+    {
+        if ($enum::class !== $from::class) {
+            throw new UnexpectedValueException('Arguments must be a same class');
+        }
+
+        return in_array($enum, static::getBetween($from, $to), true);
+    }
 }
