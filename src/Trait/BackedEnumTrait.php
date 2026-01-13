@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace EvgenijVY\EnumExtender\Trait;
 
-use BackedEnum;
+use UnitEnum;
 
 /**
- * @method static BackedEnum[] cases()
- * @method static BackedEnum|null tryFrom(mixed $value)
+ * @template T as UnitEnum
+ * @phpstan-require-implements T
  */
 trait BackedEnumTrait
 {
@@ -23,6 +23,6 @@ trait BackedEnumTrait
 
     public static function hasValue(int|string $value): bool
     {
-        return (bool) self::tryFrom($value);
+        return self::tryFrom($value) !== null;
     }
 }

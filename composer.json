@@ -5,7 +5,8 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "EvgenijVY\\EnumExtender\\": "src/"
+      "EvgenijVY\\EnumExtender\\": "src/",
+      "EvgenijVY\\EnumExtender\\Tests\\": "tests/"
     }
   },
   "authors": [
@@ -19,11 +20,19 @@
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.92",
-    "phpstan/phpstan": "^2.1"
+    "phpstan/phpstan": "^2.1",
+    "sebastian/diff": "^5.1.1",
+    "phpunit/phpunit": "^10"
   },
   "scripts": {
     "cs-fix": "php-cs-fixer fix",
     "cs-check": "php-cs-fixer fix --dry-run",
-    "stan-check": "phpstan analyse src"
+    "stan-check": "phpstan analyse",
+    "test": "phpunit tests",
+    "pipeline": [
+      "@cs-fix",
+      "@stan-check",
+      "@test"
+    ]
   }
 }
