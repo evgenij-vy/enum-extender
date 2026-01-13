@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace EvgenijVY\Enum\Service;
+namespace EvgenijVY\EnumExtender\Service;
 
 use BackedEnum;
 
@@ -13,7 +13,7 @@ class BackedEnumService
      */
     public static function getValues(BackedEnum $enum): array
     {
-        return array_column($enum::cases(), 'value');
+        return self::convertToValues($enum::cases());
     }
 
     /**
@@ -23,5 +23,15 @@ class BackedEnumService
     public static function convertToValues(array $enums): array
     {
         return array_column($enums, 'value');
+    }
+
+    /**
+     * @template T as BackedEnum
+     * @param class-string<T> $enumClass
+     */
+    public static function hasValue(string $enumClass, int|string $value): bool
+    {
+        return (bool) $enumClass::tryFrom($value);
+
     }
 }
