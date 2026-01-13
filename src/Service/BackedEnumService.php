@@ -5,15 +5,18 @@ declare(strict_types=1);
 namespace EvgenijVY\EnumExtender\Service;
 
 use BackedEnum;
+use EvgenijVY\EnumExtender\Trait\CompareByAnnouncementTrait;
 
 class BackedEnumService
 {
     /**
+     * @template T as BackedEnum
+     * @param class-string<T> $enumClass
      * @return string[]|int[]
      */
-    public static function getValues(BackedEnum $enum): array
+    public static function getValues(string $enumClass): array
     {
-        return self::convertToValues($enum::cases());
+        return self::convertToValues($enumClass::cases());
     }
 
     /**
@@ -31,7 +34,7 @@ class BackedEnumService
      */
     public static function hasValue(string $enumClass, int|string $value): bool
     {
-        return (bool) $enumClass::tryFrom($value);
+        return $enumClass::tryFrom($value) !== null;
 
     }
 }

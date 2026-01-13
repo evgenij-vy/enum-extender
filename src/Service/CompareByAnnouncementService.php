@@ -90,15 +90,19 @@ class CompareByAnnouncementService
             throw new UnexpectedValueException('Arguments must be a same class');
         }
 
+        if ($enum1 === $enum2) {
+            return [];
+        }
+
         $arrayEnum = $enum1::cases();
         $index1 = array_search($enum1, $arrayEnum, true);
         $index2 = array_search($enum2, $arrayEnum, true);
 
-        if ($index1 < $index2) {
-            throw new UnexpectedValueException('Enum1 must be greater than $enum2');
+        if ($index1 > $index2) {
+            throw new UnexpectedValueException("$enum1->name must be greater than $enum2->name");
         }
 
-        return array_slice($arrayEnum, $index1, $index2 - $index1 - 1);
+        return array_slice($arrayEnum, $index1 + 1, $index2 - $index1 - 1);
     }
 
     /**
@@ -109,10 +113,6 @@ class CompareByAnnouncementService
      */
     public static function isBetween(UnitEnum $enum, UnitEnum $from, UnitEnum $to): bool
     {
-        if ($enum::class !== $from::class) {
-            throw new UnexpectedValueException('Arguments must be a same class');
-        }
-
         return in_array($enum, static::getBetween($from, $to), true);
     }
 }

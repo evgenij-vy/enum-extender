@@ -8,13 +8,13 @@ use EvgenijVY\EnumExtender\Service\CompareByAnnouncementService;
 use UnitEnum;
 
 /**
- * @template T as static
+ * @require-implements UnitEnum
+ * @phpstan-require-implements UnitEnum
  */
 trait CompareByAnnouncementTrait
 {
     /**
-     * @psalm-param UnitEnum $enum
-     * @return T[]
+     * @return static[]
      */
     public static function getGreaterThanOrEqual(self $enum): array
     {
@@ -22,8 +22,7 @@ trait CompareByAnnouncementTrait
     }
 
     /**
-     * @psalm-param UnitEnum $enum
-     * @return T[]
+     * @return static[]
      */
     public static function getGreaterThan(self $enum): array
     {
@@ -31,8 +30,7 @@ trait CompareByAnnouncementTrait
     }
 
     /**
-     * @psalm-param UnitEnum $enum
-     * @return T[]
+     * @return static[]
      */
     public static function getLessThanOrEqual(self $enum): array
     {
@@ -40,8 +38,7 @@ trait CompareByAnnouncementTrait
     }
 
     /**
-     * @psalm-param UnitEnum $enum
-     * @return T[]
+     * @return static[]
      */
     public static function getLessThan(self $enum): array
     {
@@ -49,8 +46,6 @@ trait CompareByAnnouncementTrait
     }
 
     /**
-     * @psalm-param UnitEnum $enum1
-     * @psalm-param UnitEnum $enum2
      * @return int - 1 if enum1 announce earlier, 0 - some case, -1 otherwise
      */
     public static function compare(self $enum1, self $enum2): int
@@ -63,23 +58,17 @@ trait CompareByAnnouncementTrait
      */
     public function compareWith(self $enum): int
     {
-        return self::compare($this, $enum);
+        return CompareByAnnouncementService::compare($this, $enum);
     }
 
     /**
-     * @psalm-param UnitEnum $enum1
-     * @psalm-param UnitEnum $enum2
-     * @return T[]
+     * @return static[]
      */
     public static function getBetween(self $enum1, self $enum2): array
     {
         return CompareByAnnouncementService::getBetween($enum1, $enum2);
     }
 
-    /**
-     * @psalm-param UnitEnum $enum1
-     * @psalm-param UnitEnum $enum2
-    */
     public function isBetween(self $enum1, self $enum2): bool
     {
         return CompareByAnnouncementService::isBetween($this, $enum1, $enum2);
