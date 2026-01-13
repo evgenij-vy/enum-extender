@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace EvgenijVY\EnumExtender\Service;
 
 use BackedEnum;
+use EvgenijVY\EnumExtender\Trait\CompareByAnnouncementTrait;
 
 class BackedEnumService
 {
