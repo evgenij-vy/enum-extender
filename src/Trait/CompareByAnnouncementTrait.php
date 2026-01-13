@@ -55,7 +55,7 @@ trait CompareByAnnouncementTrait
      */
     public static function compare(self $enum1, self $enum2): int
     {
-       return CompareByAnnouncementService::compare($enum1, $enum2);
+        return CompareByAnnouncementService::compare($enum1, $enum2);
     }
 
     /**
