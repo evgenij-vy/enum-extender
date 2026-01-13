@@ -10,7 +10,7 @@ use UnitEnum;
 class CompareByAnnouncementService
 {
     /**
-     * @template T
+     * @template T as UnitEnum
      * @psalm-param T $enum
      * @return T[]
      */
@@ -22,7 +22,7 @@ class CompareByAnnouncementService
     }
 
     /**
-     * @template T
+     * @template T as UnitEnum
      * @psalm-param T $enum
      * @return T[]
      */
@@ -34,7 +34,7 @@ class CompareByAnnouncementService
     }
 
     /**
-     * @template T
+     * @template T as UnitEnum
      * @psalm-param T $enum
      * @return T[]
      */
@@ -46,7 +46,7 @@ class CompareByAnnouncementService
     }
 
     /**
-     * @template T
+     * @template T as UnitEnum
      * @psalm-param T $enum
      * @return T[]
      */
@@ -58,7 +58,7 @@ class CompareByAnnouncementService
     }
 
     /**
-     * @template T
+     * @template T as UnitEnum
      * @psalm-param T $enum1
      * @psalm-param T $enum2
      * @return int - 1 if enum1 announce earlier, 0 - some case, -1 otherwise
